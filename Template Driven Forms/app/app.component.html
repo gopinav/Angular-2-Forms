@@ -1,6 +1,6 @@
 <div class="container">
     <h2>User Data</h2>
-    <form #form="ngForm" (ngSubmit)="onSubmit(form.value)" >
+    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)" >
         <div class="form-group">
             <label>Name</label>
             <input type="text" #varName="ngModel" class="form-control" name="Name" ngModel required
@@ -45,6 +45,6 @@
             </div>
             
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!userForm.form.valid">Submit</button>
     </form>
 </div>
