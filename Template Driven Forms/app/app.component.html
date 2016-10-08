@@ -3,10 +3,20 @@
     <form #form="ngForm" (ngSubmit)="onSubmit(form.value)" >
         <div class="form-group">
             <label>Name</label>
-            <input type="text" #varName="ngModel" class="form-control" name="Name" ngModel required>
+            <input type="text" #varName="ngModel" class="form-control" name="Name" ngModel required
+                   minlength="4" maxlength="10">
              <b>{{varName.className}}</b>
-            <div [hidden]="varName.valid || varName.pristine" class="alert alert-danger">
-                Please enter a name
+            <div *ngIf="varName.errors && (varName.dirty || varName.touched)"
+                    class="alert alert-danger">
+                    <div [hidden]="!varName.errors.required">
+                    Name is required
+                    </div>
+                    <div [hidden]="!varName.errors.minlength">
+                    Name must be at least 4 characters long.
+                    </div>
+                    <div [hidden]="!varName.errors.maxlength">
+                    Name cannot exceed 10 characters.
+                    </div>
             </div>    
            
         </div>
@@ -25,8 +35,15 @@
             </div>
             <div class="form-group">
                 <label>Postal Code</label>
-                <input type="text" class="form-control" name="PostalCode" ngModel>
+                <input type="text" #varpostalCode="ngModel" class="form-control" name="PostalCode" ngModel pattern="^[1-9][0-9]{4}$">
+                <div *ngIf="varpostalCode.errors && (varpostalCode.dirty || varpostalCode.touched)"
+                    class="alert alert-danger">
+                    <div [hidden]="!varpostalCode.errors.pattern">
+                        Invalid format for PostalCode
+                    </div>                   
+            </div> 
             </div>
+            
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
   selector: 'my-app',
   templateUrl: 'app/app.component.html',
   styles: [`
-    .ng-invalid:not(form){border-left: 5px solid red;}
+    input.ng-invalid{border-left: 5px solid red;}
     .ng-valid[required]{border-left: 5px solid green;}
   `]
 })

@@ -20,7 +20,7 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'my-app',
             templateUrl: 'app/app.component.html',
-            styles: ["\n    .ng-invalid:not(form){border-left: 5px solid red;}\n    .ng-valid[required]{border-left: 5px solid green;}\n  "]
+            styles: ["\n    input.ng-invalid{border-left: 5px solid red;}\n    .ng-valid[required]{border-left: 5px solid green;}\n  "]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
