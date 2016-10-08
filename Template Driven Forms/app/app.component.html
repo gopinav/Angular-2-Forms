@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>User Data</h2>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form.value)" >
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" name="Name" [(ngModel)]="myName">
+            <p>{{myName}}</p>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="text" class="form-control" name="Email" ngModel>
+        </div>
+        <div ngModelGroup="Address">
+            <div class="form-group">
+                <label>Street</label>
+                <input type="text" class="form-control" name="Street" ngModel>
+            </div>
+            <div class="form-group">
+                <label>City</label>
+                <input type="text" class="form-control" name="City" ngModel>
+            </div>
+            <div class="form-group">
+                <label>Postal Code</label>
+                <input type="text" class="form-control" name="PostalCode" ngModel>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
