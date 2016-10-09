@@ -9,13 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var forms_1 = require('@angular/forms');
 var AppComponent = (function () {
     function AppComponent() {
+        this.userForm = new forms_1.FormGroup({
+            name: new forms_1.FormControl('Vishwas'),
+            email: new forms_1.FormControl(),
+            address: new forms_1.FormGroup({
+                street: new forms_1.FormControl(),
+                city: new forms_1.FormControl(),
+                postalcode: new forms_1.FormControl()
+            })
+        });
     }
+    AppComponent.prototype.onSubmit = function () {
+        console.log(this.userForm.value);
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: '<h1>Model Driven Forms</h1>'
+            templateUrl: 'app/app.component.html'
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
