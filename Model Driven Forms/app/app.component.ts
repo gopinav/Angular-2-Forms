@@ -12,7 +12,7 @@ export class AppComponent {
     address: new FormGroup({
       street: new FormControl(),
       city: new FormControl(),
-      postalcode: new FormControl(90210, Validators.pattern('^[1-9][0-9]{4}$'))
+      postalcode: new FormControl(null, Validators.pattern('^[1-9][0-9]{4}$'))
     })
   });
   onSubmit(){
